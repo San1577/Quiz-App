@@ -40,9 +40,13 @@ const questions = [
 const question = document.querySelector('.quiz-app h3');
 const answers = document.querySelector('.answer-list');
 const nextBtn = document.querySelector('.nextBtn');
+const quizApp = document.querySelector('.quiz-app');
+const header = document.querySelector('.quiz-app h1');
 
 let currentQuestionIndex = 0;
 let score = 0;
+
+const outlineHeight = 125 + header.offsetHeight + nextBtn.offsetHeight;
 
 function startQuiz() {
     if (currentQuestionIndex >= questions.length) {
@@ -73,8 +77,8 @@ function showQuiz() {
         }
         answerBtn.addEventListener('click', selectAnswer);
     });
-
-
+    let currentHeight = outlineHeight + answers.offsetHeight + question.offsetHeight;
+    quizApp.style.height = `${currentHeight}px`;
     currentQuestionIndex ++;
 }
 
@@ -105,6 +109,7 @@ function resetState() {
 function showResult() {
     question.innerHTML = `Score: ${score} out of ${currentQuestionIndex}`;
     nextBtn.innerHTML = 'Play again';
+    quizApp.style.height = `${outlineHeight}px`;
     resetStat();
 }
 
@@ -112,6 +117,8 @@ function resetStat() {
     currentQuestionIndex = 0;
     score = 0;
 }
+
+quizApp.style.height = `${quizApp.offsetHeight}px`;
 
 nextBtn.addEventListener('click', startQuiz);
 

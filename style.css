@@ -18,6 +18,7 @@
     padding: 40px 30px 70px;
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(255, 255, 255, 0.249);
+    transition: height 1s ease-in-out;
 }
 .quiz-app h1 {
     width: 100%;
